@@ -32,7 +32,7 @@ The proxy kernel is [mihomo](https://github.com/MetaCubeX/mihomo)
 |---|---|
 | App name | SkyRoute / 天际航路 |
 | Application ID | `com.skyroute.flightdeck` |
-| URL schemes | `skyroute://install-config`, `flightdeck://install-config` |
+| URL schemes | `clash://install-config`, `clashmeta://install-config` (kept for compatibility) |
 | External actions | `com.skyroute.flightdeck.action.TAKEOFF`, `.LAND`, `.TOGGLE_FLIGHT` |
 | License | GNU GPL v3.0 |
 
@@ -91,8 +91,10 @@ Package name: `com.skyroute.flightdeck`
   to `com.skyroute.flightdeck.ExternalControlActivity`
 - Take off: intent action `com.skyroute.flightdeck.action.TAKEOFF`
 - Land: intent action `com.skyroute.flightdeck.action.LAND`
-- Import a flight plan: `skyroute://install-config?url=<encoded URI>`
-  or `flightdeck://install-config?url=<encoded URI>`
+- Import a flight plan: `clash://install-config?url=<encoded URI>`
+  or `clashmeta://install-config?url=<encoded URI>`
+  (these original scheme names are intentionally kept for compatibility with
+  existing subscription links and automation)
 
 ## Upstream and license
 

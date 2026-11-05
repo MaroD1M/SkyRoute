@@ -120,8 +120,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="skyroute"/>
-                <data android:scheme="flightdeck"/>
+                <data android:scheme="clash"/>
+                <data android:scheme="clashmeta"/>
                 <data android:host="install-config"/>
             </intent-filter>
             <intent-filter>
