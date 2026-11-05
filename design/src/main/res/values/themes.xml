@@ -57,8 +57,6 @@
         <item name="colorOnSecondary">#FF1A1200</item>
         <item name="colorSurface">@color/color_hud_panel_solid</item>
         <item name="colorOnSurface">@color/color_hud_text</item>
-        <item name="colorBackground">@color/color_dark_background</item>
-        <item name="colorOnBackground">@color/color_hud_text</item>
         <item name="colorControlNormal">@color/color_hud_text</item>
         <item name="colorControlActivated">@color/color_hud_cyan</item>
         <item name="colorControlHighlight">#3300E5FF</item>
@@ -97,8 +95,6 @@
         <item name="colorOnSecondary">#FF1A1200</item>
         <item name="colorSurface">@color/color_hud_panel_solid</item>
         <item name="colorOnSurface">@color/color_hud_text</item>
-        <item name="colorBackground">@color/color_dark_background</item>
-        <item name="colorOnBackground">@color/color_hud_text</item>
         <item name="colorControlNormal">@color/color_hud_text</item>
         <item name="colorControlActivated">@color/color_hud_cyan</item>
         <item name="colorControlHighlight">#3300E5FF</item>
@@ -140,8 +136,6 @@
         <item name="colorOnSecondary">#FF1A1200</item>
         <item name="colorSurface">@color/color_hud_panel_solid</item>
         <item name="colorOnSurface">@color/color_hud_text</item>
-        <item name="colorBackground">@color/color_dark_background</item>
-        <item name="colorOnBackground">@color/color_hud_text</item>
         <item name="colorControlNormal">@color/color_hud_text</item>
         <item name="colorControlActivated">@color/color_hud_cyan</item>
         <item name="colorControlHighlight">#3300E5FF</item>
