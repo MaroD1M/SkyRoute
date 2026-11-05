@@ -256,8 +256,8 @@
     <string name="toast_profile_updated_complete">Update profile %s completed</string>
     <string name="toast_profile_updated_failed">Update profile %1$s failed: %2$s</string>
     <string name="external_control_activity">External Control</string>
-    <string name="external_control_started">SkyRoute.Meta service started</string>
-    <string name="external_control_stopped">SkyRoute.Meta service stopped</string>
+    <string name="external_control_started">航班已起飛</string>
+    <string name="external_control_stopped">航班已降落</string>
     <string name="force_dns_mapping">Force DNS Mapping</string>
     <string name="parse_pure_ip">Parse Pure IP</string>
     <string name="override_destination">Override Destination</string>
