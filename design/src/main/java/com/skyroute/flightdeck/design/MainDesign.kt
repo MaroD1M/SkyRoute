@@ -1,7 +1,6 @@
 package com.skyroute.flightdeck.design
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.skyroute.flightdeck.core.model.TunnelState
@@ -14,6 +13,7 @@ import com.skyroute.flightdeck.design.util.root
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
@@ -44,14 +44,12 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
         withContext(Dispatchers.Main) {
             binding.clashRunning = running
             binding.flightRadar.inFlight = running
-            binding.mainActionCard.strokeColor = ColorStateList.valueOf(
-                context.resolveThemedColor(
-                    if (running) {
-                        com.google.android.material.R.attr.colorPrimary
-                    } else {
-                        R.attr.colorClashStopped
-                    }
-                )
+            binding.mainActionCard.strokeColor = context.resolveThemedColor(
+                if (running) {
+                    com.google.android.material.R.attr.colorPrimary
+                } else {
+                    R.attr.colorClashStopped
+                }
             )
 
             binding.statusChip.animate().cancel()
@@ -127,7 +125,7 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
 
         binding.colorClashStarted = started
         binding.colorClashStopped = stopped
-        binding.mainActionCard.strokeColor = ColorStateList.valueOf(stopped)
+        binding.mainActionCard.strokeColor = stopped
 
         launch {
             while (isActive) {

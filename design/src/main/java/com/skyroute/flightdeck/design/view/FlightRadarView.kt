@@ -273,7 +273,7 @@ class FlightRadarView @JvmOverloads constructor(
 
         glowPaint.color = withAlpha(accent, 0x33)
         canvas.drawCircle(destinationX, destinationY, pulseRadius * pulse, glowPaint)
-        nodePaint.color = cyan
+        nodePaint.color = accent
         canvas.drawCircle(destinationX, destinationY, nodeRadius, nodePaint)
 
         canvas.drawText("ORIGIN", originX - 18f * density, originY + 22f * density, labelPaint)
