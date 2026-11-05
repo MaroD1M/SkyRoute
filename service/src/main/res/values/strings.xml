@@ -2,20 +2,20 @@
     <!-- from https://github.com/shadowsocks/shadowsocks-android/blob/master/core/src/main/res/values/strings.xml -->
     <string name="clash_notification_content" translatable="false">"%1$s↑\t%2$s↓"</string>
 
-    <string name="clash_service_status_channel">Clash Status</string>
-    <string name="profile_service_status">Profile Service Status</string>
-    <string name="profile_process_status">Profile Processing Status</string>
-    <string name="profile_process_result">Profile Process Result</string>
-    <string name="update_successfully">Update Successfully</string>
-    <string name="update_failure">Update Failure</string>
-    <string name="format_update_complete">Update %s completed</string>
-    <string name="format_update_failure">Update %1$s: %2$s</string>
-    <string name="running">Running</string>
-    <string name="loading">Loading</string>
-    <string name="clash_meta_for_android">Clash Meta for Android</string>
-    <string name="profiles_and_providers">Profiles and Providers</string>
-    <string name="configuration_yaml">Configuration.yaml</string>
-    <string name="provider_files">Provider Files</string>
-    <string name="profile_updater">Profile Updater</string>
-    <string name="profile_updating">Profile Updating</string>
+    <string name="clash_service_status_channel">Flight Status</string>
+    <string name="profile_service_status">Flight Service Status</string>
+    <string name="profile_process_status">Flight Briefing Status</string>
+    <string name="profile_process_result">Flight Briefing Result</string>
+    <string name="update_successfully">Briefing synced</string>
+    <string name="update_failure">Briefing failed</string>
+    <string name="format_update_complete">Flight briefing %s synced</string>
+    <string name="format_update_failure">Briefing %1$s: %2$s</string>
+    <string name="running">IN FLIGHT</string>
+    <string name="loading">SPOOLING UP</string>
+    <string name="clash_meta_for_android">SkyRoute</string>
+    <string name="profiles_and_providers">Flight Plans &amp; Airlines</string>
+    <string name="configuration_yaml">flight-plan.yaml</string>
+    <string name="provider_files">Airline Data Files</string>
+    <string name="profile_updater">Flight Briefing Service</string>
+    <string name="profile_updating">Updating Flight Briefing</string>
 </resources>

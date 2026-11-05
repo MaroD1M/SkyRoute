@@ -1,3 +1,24 @@
+SkyRoute — flight-themed derivative work
+==========================================================================
+
+SkyRoute is a modified version of ClashMetaForAndroid
+(https://github.com/MetaCubeX/ClashMetaForAndroid), Copyright (C) the
+ClashMetaForAndroid contributors, licensed under the GNU General Public
+License v3.0.
+
+Modifications: rebranding to SkyRoute, package/namespace rename, aviation
+iconography, sci-fi HUD/flight-radar user interface, flight-themed strings,
+and removal of original launcher branding. Modifications made in 2026.
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version. There is NO WARRANTY.
+
+The original GPL-3.0 notices and third-party license texts follow below.
+
+==========================================================================
+
 3th-party software licenses
 
  * Clash

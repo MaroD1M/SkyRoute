@@ -3,9 +3,10 @@
     <item>
         <shape android:shape="rectangle">
             <solid android:color="?attr/colorSurface" />
+            <stroke android:width="1dp" android:color="?attr/colorControlHighlight" />
             <corners
-                android:topLeftRadius="16dp"
-                android:topRightRadius="16dp" />
+                android:topLeftRadius="20dp"
+                android:topRightRadius="20dp" />
         </shape>
     </item>
     <item
@@ -13,9 +14,9 @@
         android:top="@dimen/bottom_sheet_background_padding_top">
         <shape android:shape="rectangle">
             <size
-                android:width="40dp"
+                android:width="48dp"
                 android:height="@dimen/bottom_sheet_header_height" />
-            <solid android:color="?attr/colorControlHighlight" />
+            <solid android:color="?attr/colorPrimary" />
             <corners android:radius="5dp" />
         </shape>
     </item>

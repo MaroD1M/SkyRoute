@@ -4,7 +4,7 @@
     <data>
         <variable
             name="self"
-            type="com.github.kr328.clash.design.MainDesign" />
+            type="com.skyroute.flightdeck.design.MainDesign" />
         <variable
             name="clashRunning"
             type="boolean" />
@@ -28,18 +28,20 @@
             type="boolean" />
 
         <import type="android.view.View" />
-        <import type="com.github.kr328.clash.design.MainDesign.Request" />
+        <import type="com.skyroute.flightdeck.design.MainDesign.Request" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?android:attr/windowBackground"
         android:paddingStart="@{self.surface.insets.start}"
         android:paddingEnd="@{self.surface.insets.end}">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fillViewport="true"
             android:scrollbars="none">
 
             <LinearLayout
@@ -57,98 +59,360 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:minHeight="@dimen/main_top_banner_height"
+                    android:orientation="horizontal"
+                    android:paddingTop="14dp">
+
+                    <ImageView
+                        android:layout_width="@dimen/main_logo_size"
+                        android:layout_height="@dimen/main_logo_size"
+                        android:contentDescription="@string/app_name_hud"
+                        android:src="@drawable/ic_skyroute_mark" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/app_name_hud"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudTitle" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/app_subtitle_hud"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudCaption" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/status_chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_hud_chip"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="7dp"
+                        android:text="@{clashRunning ? @string/status_in_flight : @string/status_standby}"
+                        android:textColor="@{clashRunning ? colorClashStarted : colorClashStopped}"
+                        android:textSize="10sp"
+                        android:letterSpacing="0.14"
+                        android:fontFamily="monospace" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
-
-                    <FrameLayout
-                        android:layout_width="@dimen/large_item_header_layout_size"
-                        android:layout_height="@dimen/large_item_header_layout_size">
-
-                        <View
-                            android:layout_width="@dimen/main_logo_size"
-                            android:layout_height="@dimen/main_logo_size"
-                            android:layout_gravity="center"
-                            android:background="@drawable/ic_clash" />
-                    </FrameLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/application_name"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                        android:text="@string/hud_radar"
+                        android:textAppearance="@style/TextAppearance.SkyRoute.HudLabel" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/live_indicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● LIVE"
+                        android:textColor="@color/color_hud_green"
+                        android:textSize="10sp"
+                        android:fontFamily="monospace" />
                 </LinearLayout>
 
-                <com.github.kr328.clash.design.view.LargeActionCard
+                <com.skyroute.flightdeck.design.view.FlightRadarView
+                    android:id="@+id/flight_radar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/hud_radar_height"
+                    android:layout_marginTop="4dp" />
+
+                <com.skyroute.flightdeck.design.view.LargeActionCard
+                    android:id="@+id/main_action_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/main_card_margin_vertical"
                     android:onClick="@{() -> self.request(Request.ToggleStatus)}"
                     android:theme="@style/AppThemeDark"
-                    app:cardBackgroundColor="@{clashRunning ? colorClashStarted : colorClashStopped}"
-                    app:icon="@{clashRunning ? @drawable/ic_outline_check_circle : @drawable/ic_outline_not_interested}"
+                    app:cardBackgroundColor="@color/color_hud_panel"
+                    app:icon="@{clashRunning ? @drawable/ic_landing : @drawable/ic_takeoff}"
+                    app:strokeWidth="1dp"
                     app:subtext="@{clashRunning ? @string/format_traffic_forwarded(forwarded) : @string/tap_to_start}"
-                    app:text="@{clashRunning ? @string/running : @string/stopped}">
+                    app:text="@{clashRunning ? @string/land : @string/takeoff}">
                     <requestFocus />
-                </com.github.kr328.clash.design.view.LargeActionCard>
+                </com.skyroute.flightdeck.design.view.LargeActionCard>
 
-                <com.github.kr328.clash.design.view.LargeActionCard
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/main_card_margin_vertical"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_stat"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hud_flight_plan"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudLabel" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{profileName != null ? profileName : @string/not_selected}"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudValue" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_stat"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hud_route"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudLabel" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{mode}"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudValue" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_stat"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hud_origin"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudLabel" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/hud_local_node"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudValue" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_stat"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hud_destination"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudLabel" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/hud_remote_node"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudValue" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_stat"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hud_payload"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudLabel" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{clashRunning ? @string/format_traffic_forwarded(forwarded) : @string/hud_no_data}"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudValue" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_stat"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hud_status"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudLabel" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@{clashRunning ? @string/status_in_flight : @string/status_standby}"
+                            android:textAppearance="@style/TextAppearance.SkyRoute.HudValue"
+                            android:textColor="@{clashRunning ? colorClashStarted : colorClashStopped}" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hud_ground_services"
+                        android:textAppearance="@style/TextAppearance.SkyRoute.HudLabel" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:background="@drawable/bg_hud_dot" />
+                </LinearLayout>
+
+                <com.skyroute.flightdeck.design.view.LargeActionLabel
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenProxy)}"
                     android:visibility="@{clashRunning ? View.VISIBLE : View.GONE}"
-                    app:icon="@drawable/ic_baseline_apps"
+                    app:icon="@drawable/ic_route"
                     app:subtext="@{mode}"
                     app:text="@string/proxy" />
 
-                <com.github.kr328.clash.design.view.LargeActionCard
+                <com.skyroute.flightdeck.design.view.LargeActionLabel
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/main_card_margin_vertical"
+                    android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenProfiles)}"
-                    app:icon="@drawable/ic_baseline_view_list"
+                    app:icon="@drawable/ic_flight_plan"
                     app:subtext="@{profileName != null ? @string/format_profile_activated(profileName) : @string/not_selected}"
-                    app:text="@string/profile" />
+                    app:text="@string/profiles" />
 
-                <com.github.kr328.clash.design.view.LargeActionLabel
+                <com.skyroute.flightdeck.design.view.LargeActionLabel
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenProviders)}"
                     android:visibility="@{clashRunning &amp;&amp; hasProviders ? View.VISIBLE : View.GONE}"
-                    app:icon="@drawable/ic_baseline_swap_vertical_circle"
+                    app:icon="@drawable/ic_airlines"
                     app:text="@string/providers" />
 
-                <com.github.kr328.clash.design.view.LargeActionLabel
+                <com.skyroute.flightdeck.design.view.LargeActionLabel
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenLogs)}"
-                    app:icon="@drawable/ic_baseline_assignment"
+                    app:icon="@drawable/ic_blackbox"
                     app:text="@string/logs" />
 
-                <com.github.kr328.clash.design.view.LargeActionLabel
+                <com.skyroute.flightdeck.design.view.LargeActionLabel
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenSettings)}"
-                    app:icon="@drawable/ic_baseline_settings"
+                    app:icon="@drawable/ic_tower"
                     app:text="@string/settings" />
 
-                <com.github.kr328.clash.design.view.LargeActionLabel
+                <com.skyroute.flightdeck.design.view.LargeActionLabel
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenHelp)}"
-                    app:icon="@drawable/ic_baseline_help_center"
+                    app:icon="@drawable/ic_manual"
                     app:text="@string/help" />
 
-                <com.github.kr328.clash.design.view.LargeActionLabel
+                <com.skyroute.flightdeck.design.view.LargeActionLabel
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenAbout)}"
-                    app:icon="@drawable/ic_baseline_info"
+                    app:icon="@drawable/ic_aircraft_info"
                     app:text="@string/about" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="18dp"
+                    android:gravity="center"
+                    android:text="@string/hud_footer"
+                    android:textAppearance="@style/TextAppearance.SkyRoute.HudCaption" />
             </LinearLayout>
         </ScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

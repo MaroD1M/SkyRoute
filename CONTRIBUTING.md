@@ -1,14 +1,23 @@
-## Contributing to Clash for Android
+## Contributing to SkyRoute
 
-#### Code Style
+SkyRoute is a GPL-3.0 derivative of ClashMetaForAndroid. Contributions are
+welcome under the same license.
 
-Please use `Android Studio` or `Intellij IDEA` to open the project and use the project code style profile.
+### Code style
 
-`File` -> `Settings` -> `Editor` -> `Code Style` -> `C/C++ and Kotlin` -> `Scheme` -> `Project`
+Open the project with Android Studio or IntelliJ IDEA and use the project code
+style profile:
 
+`File` -> `Settings` -> `Editor` -> `Code Style` -> `C/C++ and Kotlin` ->
+`Scheme` -> `Project`
 
+### License
 
-#### License
+By contributing, you agree that your contributions are licensed under
+GPL-3.0. Do not submit code that cannot be distributed under GPL-3.0.
 
-Contributing to Clash for Android that assumes you allow code to be merged into closed-source branch of Clash for Android. Other terms follow the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
+### Upstream
 
+The proxy kernel is maintained upstream at
+<https://github.com/MetaCubeX/mihomo>. Kernel improvements should be sent
+upstream where possible. Android-specific changes can be proposed here.

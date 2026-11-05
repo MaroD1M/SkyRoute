@@ -1,11 +1,14 @@
-A Graphical user interface of Clash.Meta for Android.
+SkyRoute turns every connection into a flight. Origin and destination airports,
+animated airspace radar, flight plans, air routes, airlines, a black box and a
+control tower: all powered by the mihomo proxy kernel.
 
-<h3>Features</h3>
-<ul>
-<li>Local HTTP/HTTPS/SOCKS server</li>
-<li>VMess, Shadowsocks, Trojan, Snell protocol support for remote connections</li>
-<li>Built-in DNS server that aims to minimize DNS pollution attack impact, supports DoH/DoT upstream and fake IP</li>
-<li>Rules based off domains, GEOIP, IPCIDR or Process to forward packets to different nodes</li>
-<li>Remote groups allow users to implement powerful rules. Supports automatic fallback, load balancing or auto select node based off latency</li>
-<li>Remote providers, allowing users to get node lists remotely instead of hardcoding in config</li>
-</ul>
+Features:
+- Rule-based routing, TUN/VPN, DNS, proxies and providers from mihomo
+- Live flight radar HUD with animated aircraft
+- Flight plans (profiles), air routes (proxy groups), airlines (providers)
+- Per-app passenger manifest, airspace control and night-cockpit theme
+- Three launcher icons and three cockpit accent styles, switchable in Settings
+- Free software, GPL-3.0, no ads, no analytics, no telemetry
+
+SkyRoute is a derivative of ClashMetaForAndroid and is not affiliated with or
+endorsed by the original authors.

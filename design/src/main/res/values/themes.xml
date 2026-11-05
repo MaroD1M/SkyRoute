@@ -4,27 +4,41 @@
         <item name="android:background">@drawable/bg_bottom_sheet</item>
     </style>
 
-    <style name="AppFullScreenDialogLightBase" parent="Theme.MaterialComponents.Light.Dialog">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="paddingRightSystemWindowInsets">false</item>
-        <item name="paddingBottomSystemWindowInsets">false</item>
-        <item name="paddingLeftSystemWindowInsets">false</item>
+    <style name="TextAppearance.SkyRoute.HudLabel" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/color_hud_cyan_dim</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.18</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
 
-        <item name="colorPrimary">@color/color_clash_light</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorControlNormal">@android:color/black</item>
-        <item name="colorClashStopped">@color/color_light_clash_stopped</item>
-        <item name="colorControlDisabled">@color/color_light_control_disabled</item>
+    <style name="TextAppearance.SkyRoute.HudValue" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/color_hud_text</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
 
-        <item name="colorPrimaryDark">?attr/colorPrimary</item>
-        <item name="colorSecondary">?attr/colorPrimary</item>
-        <item name="colorOnSecondary">?attr/colorOnPrimary</item>
-        <item name="colorControlActivated">?attr/colorPrimary</item>
-        <item name="android:textColor">?attr/colorControlNormal</item>
-        <item name="android:windowBackground">@color/color_light_background</item>
+    <style name="TextAppearance.SkyRoute.HudTitle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">0.22</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="TextAppearance.SkyRoute.HudCaption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/color_hud_text_dim</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0.16</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="TextAppearance.SkyRoute.HudMono" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/color_hud_text</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:letterSpacing">0.04</item>
     </style>
 
     <style name="AppFullScreenDialogDarkBase" parent="Theme.MaterialComponents.Dialog">
@@ -36,49 +50,38 @@
         <item name="paddingBottomSystemWindowInsets">false</item>
         <item name="paddingLeftSystemWindowInsets">false</item>
 
-        <item name="colorPrimary">@color/color_clash_dark</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSurface">@color/color_dark_surface</item>
+        <item name="colorPrimary">@color/color_hud_cyan</item>
+        <item name="colorPrimaryVariant">@color/color_hud_cyan_dim</item>
+        <item name="colorOnPrimary">#FF001018</item>
+        <item name="colorSecondary">@color/color_hud_amber</item>
+        <item name="colorOnSecondary">#FF1A1200</item>
+        <item name="colorSurface">@color/color_hud_panel_solid</item>
+        <item name="colorOnSurface">@color/color_hud_text</item>
+        <item name="colorBackground">@color/color_dark_background</item>
+        <item name="colorOnBackground">@color/color_hud_text</item>
+        <item name="colorControlNormal">@color/color_hud_text</item>
+        <item name="colorControlActivated">@color/color_hud_cyan</item>
+        <item name="colorControlHighlight">#3300E5FF</item>
         <item name="colorControlDisabled">@color/color_dark_control_disabled</item>
-        <item name="android:windowBackground">@color/color_dark_background</item>
-
-        <item name="colorPrimaryDark">?attr/colorPrimary</item>
-        <item name="colorSecondary">?attr/colorPrimary</item>
-        <item name="colorOnSecondary">?attr/colorOnPrimary</item>
-        <item name="colorControlActivated">?attr/colorPrimary</item>
-        <item name="colorClashStopped">?attr/colorSurface</item>
+        <item name="colorClashStopped">@color/color_hud_amber</item>
+        <item name="colorLogo">@color/color_hud_cyan</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="android:windowBackground">@drawable/bg_hud_space</item>
         <item name="android:textColor">?attr/colorControlNormal</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
     </style>
+
+    <style name="AppFullScreenDialogLightBase" parent="AppFullScreenDialogDarkBase" />
 
     <style name="AppFullScreenDialogLight" parent="AppFullScreenDialogLightBase">
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@color/color_system_ui_overlay</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 
     <style name="AppFullScreenDialogDark" parent="AppFullScreenDialogDarkBase">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-    </style>
-
-    <style name="AppBottomSheetDialogLightBase" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
-        <item name="android:windowIsFloating">false</item>
-        <item name="paddingRightSystemWindowInsets">false</item>
-        <item name="paddingBottomSystemWindowInsets">false</item>
-        <item name="paddingLeftSystemWindowInsets">false</item>
-
-        <item name="colorPrimary">@color/color_clash_light</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorControlNormal">@android:color/black</item>
-        <item name="colorClashStopped">@color/color_light_clash_stopped</item>
-        <item name="colorControlDisabled">@color/color_light_control_disabled</item>
-
-        <item name="colorPrimaryDark">?attr/colorPrimary</item>
-        <item name="colorSecondary">?attr/colorPrimary</item>
-        <item name="colorOnSecondary">?attr/colorOnPrimary</item>
-        <item name="colorControlActivated">?attr/colorPrimary</item>
-        <item name="android:textColor">?attr/colorControlNormal</item>
-
-        <item name="bottomSheetStyle">@style/AppBottomSheetStyle</item>
     </style>
 
     <style name="AppBottomSheetDialogDarkBase" parent="Theme.MaterialComponents.BottomSheetDialog">
@@ -87,24 +90,35 @@
         <item name="paddingBottomSystemWindowInsets">false</item>
         <item name="paddingLeftSystemWindowInsets">false</item>
 
-        <item name="colorPrimary">@color/color_clash_dark</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSurface">@color/color_dark_surface</item>
+        <item name="colorPrimary">@color/color_hud_cyan</item>
+        <item name="colorPrimaryVariant">@color/color_hud_cyan_dim</item>
+        <item name="colorOnPrimary">#FF001018</item>
+        <item name="colorSecondary">@color/color_hud_amber</item>
+        <item name="colorOnSecondary">#FF1A1200</item>
+        <item name="colorSurface">@color/color_hud_panel_solid</item>
+        <item name="colorOnSurface">@color/color_hud_text</item>
+        <item name="colorBackground">@color/color_dark_background</item>
+        <item name="colorOnBackground">@color/color_hud_text</item>
+        <item name="colorControlNormal">@color/color_hud_text</item>
+        <item name="colorControlActivated">@color/color_hud_cyan</item>
+        <item name="colorControlHighlight">#3300E5FF</item>
         <item name="colorControlDisabled">@color/color_dark_control_disabled</item>
-
-        <item name="colorPrimaryDark">?attr/colorPrimary</item>
-        <item name="colorSecondary">?attr/colorPrimary</item>
-        <item name="colorOnSecondary">?attr/colorOnPrimary</item>
-        <item name="colorControlActivated">?attr/colorPrimary</item>
-        <item name="colorClashStopped">?attr/colorSurface</item>
+        <item name="colorClashStopped">@color/color_hud_amber</item>
+        <item name="colorLogo">@color/color_hud_cyan</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="android:windowBackground">@drawable/bg_hud_space</item>
         <item name="android:textColor">?attr/colorControlNormal</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
 
         <item name="bottomSheetStyle">@style/AppBottomSheetStyle</item>
     </style>
 
+    <style name="AppBottomSheetDialogLightBase" parent="AppBottomSheetDialogDarkBase" />
+
     <style name="AppBottomSheetDialogLight" parent="AppBottomSheetDialogLightBase">
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@color/color_system_ui_overlay</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 
     <style name="AppBottomSheetDialogDark" parent="AppBottomSheetDialogDarkBase">
@@ -112,58 +126,77 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="AppThemeLightBase" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@color/color_light_background</item>
-        <item name="android:ambientShadowAlpha">0.08</item>
-        <item name="android:spotShadowAlpha">0.08</item>
-
-        <item name="colorPrimary">@color/color_clash_light</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorControlNormal">@android:color/black</item>
-        <item name="colorClashStopped">@color/color_light_clash_stopped</item>
-        <item name="colorControlDisabled">@color/color_light_control_disabled</item>
-
-        <item name="colorPrimaryDark">?attr/colorPrimary</item>
-        <item name="colorSecondary">?attr/colorPrimary</item>
-        <item name="colorOnSecondary">?attr/colorOnPrimary</item>
-        <item name="colorControlActivated">?attr/colorPrimary</item>
-        <item name="colorLogo">?attr/colorControlActivated</item>
-        <item name="android:textColor">?attr/colorControlNormal</item>
-
-        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogLight</item>
-        <item name="fullScreenDialogTheme">@style/AppFullScreenDialogLight</item>
-    </style>
-
     <style name="AppThemeDarkBase" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="android:windowBackground">@color/color_dark_background</item>
+        <item name="android:windowBackground">@drawable/bg_hud_space</item>
         <item name="android:ambientShadowAlpha">0.08</item>
         <item name="android:spotShadowAlpha">0.08</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
 
-        <item name="colorPrimary">@color/color_clash_dark</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSurface">@color/color_dark_surface</item>
-        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorPrimary">@color/color_hud_cyan</item>
+        <item name="colorPrimaryVariant">@color/color_hud_cyan_dim</item>
+        <item name="colorOnPrimary">#FF001018</item>
+        <item name="colorSecondary">@color/color_hud_amber</item>
+        <item name="colorOnSecondary">#FF1A1200</item>
+        <item name="colorSurface">@color/color_hud_panel_solid</item>
+        <item name="colorOnSurface">@color/color_hud_text</item>
+        <item name="colorBackground">@color/color_dark_background</item>
+        <item name="colorOnBackground">@color/color_hud_text</item>
+        <item name="colorControlNormal">@color/color_hud_text</item>
+        <item name="colorControlActivated">@color/color_hud_cyan</item>
+        <item name="colorControlHighlight">#3300E5FF</item>
         <item name="colorControlDisabled">@color/color_dark_control_disabled</item>
-
-        <item name="colorPrimaryDark">?attr/colorPrimary</item>
-        <item name="colorSecondary">?attr/colorPrimary</item>
-        <item name="colorOnSecondary">?attr/colorOnPrimary</item>
-        <item name="colorControlActivated">?attr/colorPrimary</item>
-        <item name="colorClashStopped">?attr/colorSurface</item>
-        <item name="colorLogo">?attr/colorControlNormal</item>
+        <item name="colorClashStopped">@color/color_hud_amber</item>
+        <item name="colorLogo">@color/color_hud_cyan</item>
+        <item name="colorError">@color/color_error</item>
         <item name="android:textColor">?attr/colorControlNormal</item>
 
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogDark</item>
         <item name="fullScreenDialogTheme">@style/AppFullScreenDialogDark</item>
     </style>
 
+    <style name="AppThemeLightBase" parent="AppThemeDarkBase" />
+
     <style name="AppThemeLight" parent="AppThemeLightBase">
-        <item name="android:statusBarColor">@color/color_system_ui_overlay</item>
-        <item name="android:navigationBarColor">@color/color_system_ui_overlay</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 
     <style name="AppThemeDark" parent="AppThemeDarkBase">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppThemeAccentCyan">
+        <item name="android:windowBackground">@drawable/bg_hud_space</item>
+        <item name="colorPrimary">@color/color_hud_cyan</item>
+        <item name="colorPrimaryVariant">@color/color_hud_cyan_dim</item>
+        <item name="colorSecondary">@color/color_hud_amber</item>
+        <item name="colorControlActivated">@color/color_hud_cyan</item>
+        <item name="colorControlHighlight">#3300E5FF</item>
+        <item name="colorLogo">@color/color_hud_cyan</item>
+        <item name="colorClashStopped">@color/color_hud_amber</item>
+    </style>
+
+    <style name="AppThemeAccentAmber">
+        <item name="android:windowBackground">@drawable/bg_hud_space_amber</item>
+        <item name="colorPrimary">@color/color_hud_amber</item>
+        <item name="colorPrimaryVariant">@color/color_hud_amber_dim</item>
+        <item name="colorSecondary">@color/color_hud_cyan</item>
+        <item name="colorControlActivated">@color/color_hud_amber</item>
+        <item name="colorControlHighlight">#33FFC400</item>
+        <item name="colorLogo">@color/color_hud_amber</item>
+        <item name="colorClashStopped">@color/color_hud_cyan</item>
+    </style>
+
+    <style name="AppThemeAccentViolet">
+        <item name="android:windowBackground">@drawable/bg_hud_space_violet</item>
+        <item name="colorPrimary">@color/color_hud_violet</item>
+        <item name="colorPrimaryVariant">@color/color_hud_violet_dim</item>
+        <item name="colorSecondary">@color/color_hud_cyan</item>
+        <item name="colorControlActivated">@color/color_hud_violet</item>
+        <item name="colorControlHighlight">#33B388FF</item>
+        <item name="colorLogo">@color/color_hud_violet</item>
+        <item name="colorClashStopped">@color/color_hud_cyan</item>
     </style>
 </resources>

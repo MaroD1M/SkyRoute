@@ -11,12 +11,13 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:background="@drawable/bg_hud_panel"
         android:padding="@dimen/dialog_padding">
 
         <View
             android:layout_width="@dimen/about_icon_size"
             android:layout_height="@dimen/about_icon_size"
-            android:background="@drawable/ic_clash" />
+            android:background="@drawable/ic_skyroute_mark" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,6 +37,20 @@
                 android:layout_marginTop="@dimen/item_text_margin"
                 android:text="@{versionName}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_text_margin"
+                android:text="@string/attribution"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/about_license"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
         </LinearLayout>
     </LinearLayout>
 </layout>

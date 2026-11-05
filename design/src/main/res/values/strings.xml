@@ -1,30 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
-    <string name="launch_name_meta">Clash Meta</string>
-    <string name="launch_name_alpha">Clash Meta Alpha</string>
-    <string name="application_name_meta">Clash Meta for Android</string>
-    <string name="application_name_alpha">Clash Meta for Android Alpha</string>
+    <string name="launch_name_meta">SkyRoute</string>
+    <string name="launch_name_alpha">SkyRoute Preview</string>
+    <string name="application_name_meta">SkyRoute</string>
+    <string name="application_name_alpha">SkyRoute Preview</string>
 
-    <string name="stopped">Stopped</string>
-    <string name="tap_to_start">Tap to start</string>
-    <string name="running">Running</string>
-    <string name="format_traffic_forwarded">%s Forwarded</string>
+    <string name="stopped">STANDBY</string>
+    <string name="tap_to_start">TAP TO START BOARDING</string>
+    <string name="running">IN FLIGHT</string>
+    <string name="format_traffic_forwarded">%s PAYLOAD</string>
 
-    <string name="proxy">Proxy</string>
-    <string name="direct_mode">Direct Mode</string>
-    <string name="rule_mode">Rule Mode</string>
-    <string name="global_mode">Global Mode</string>
-    <string name="proxy_empty_tips">No groups can be displayed</string>
+    <string name="proxy">AIR ROUTES</string>
+    <string name="direct_mode">DIRECT VECTOR</string>
+    <string name="rule_mode">AUTO ROUTE</string>
+    <string name="global_mode">INTERCEPT</string>
+    <string name="proxy_empty_tips">No air routes available</string>
 
-    <string name="profiles">Profiles</string>
-    <string name="not_selected">Not selected</string>
-    <string name="format_profile_activated">%s Activated</string>
+    <string name="profiles">FLIGHT PLANS</string>
+    <string name="not_selected">NO FLIGHT PLAN</string>
+    <string name="format_profile_activated">%s · ACTIVE</string>
 
-    <string name="logs">Logs</string>
-    <string name="settings">Settings</string>
-    <string name="help">Help</string>
-    <string name="about">About</string>
+    <string name="logs">BLACK BOX</string>
+    <string name="settings">CONTROL TOWER</string>
+    <string name="help">FLIGHT MANUAL</string>
+    <string name="about">AIRCRAFT</string>
 
-    <string name="copied">Copied</string>
+    <string name="copied">COPIED TO CLIPBOARD</string>
 
     <string name="recently">Recently</string>
 
@@ -37,28 +37,28 @@
     <string name="format_months_ago">%d months ago</string>
     <string name="format_years_ago">%d years ago</string>
 
-    <string name="create_profile">Create Profile</string>
-    <string name="file">File</string>
-    <string name="import_from_file">Import from File</string>
+    <string name="create_profile">FILE FLIGHT PLAN</string>
+    <string name="file">FILE</string>
+    <string name="import_from_file">LOAD FROM FILE</string>
     <string name="url">URL</string>
     <string name="qr" translatable="false">QR Code</string>
-    <string name="import_from_url">Import from URL</string>
-    <string name="import_from_qr">Import from QR Code</string>
-    <string name="external">External</string>
+    <string name="import_from_url">LOAD FROM URL</string>
+    <string name="import_from_qr">SCAN QR CODE</string>
+    <string name="external">EXTERNAL</string>
     <string name="format_type_unsaved">%s (Unsaved)</string>
 
-    <string name="application_broken">Application Broken</string>
-    <string name="application_crashed">Application Crashed</string>
-    <string name="application_broken_tips">App lacks the necessary runtime components, which is usually caused by downloading an incomplete apk.</string>
-    <string name="reinstall">Reinstall</string>
-    <string name="github_releases">Github Releases</string>
+    <string name="application_broken">FLIGHT SYSTEM FAULT</string>
+    <string name="application_crashed">COCKPIT CRASH</string>
+    <string name="application_broken_tips">Flight computer is missing runtime components. Reinstall the APK.</string>
+    <string name="reinstall">REINSTALL</string>
+    <string name="github_releases">FLIGHT DECK RELEASES</string>
 
-    <string name="profile">Profile</string>
-    <string name="name">Name</string>
-    <string name="profile_name">Profile Name</string>
-    <string name="profile_url">Profile URL</string>
-    <string name="auto_update">Auto Update</string>
-    <string name="auto_update_minutes">Auto Update (Minutes)</string>
+    <string name="profile">FLIGHT PLAN</string>
+    <string name="name">CALLSIGN</string>
+    <string name="profile_name">FLIGHT PLAN NAME</string>
+    <string name="profile_url">FLIGHT PLAN URL</string>
+    <string name="auto_update">AUTO BRIEFING</string>
+    <string name="auto_update_minutes">BRIEFING INTERVAL (MIN)</string>
 
     <string name="accept_http_content">Accept only http(s)</string>
     <string name="at_least_15_minutes">At least 15 minutes or empty</string>
@@ -77,62 +77,62 @@
     <string name="age_key_copy">Copy</string>
     <string name="should_not_be_blank">Should not be blank</string>
     <string name="detail">Detail</string>
-    <string name="update">Update</string>
-    <string name="edit">Edit</string>
-    <string name="delete">Delete</string>
-    <string name="export">Export</string>
-    <string name="import_">Import</string>
-    <string name="properties">Properties</string>
-    <string name="duplicate">Duplicate</string>
-    <string name="share_qr_code">Share QR code</string>
+    <string name="update">SYNC</string>
+    <string name="edit">EDIT</string>
+    <string name="delete">SCRAP</string>
+    <string name="export">EXPORT</string>
+    <string name="import_">IMPORT</string>
+    <string name="properties">FLIGHT PARAMETERS</string>
+    <string name="duplicate">DUPLICATE</string>
+    <string name="share_qr_code">SHARE FLIGHT QR</string>
     <string name="qr_code_generation_failed">Unable to generate a QR code for this link.</string>
-    <string name="active_unsaved_tips">Profile needs to be saved before activation</string>
+    <string name="active_unsaved_tips">File the flight plan before departure</string>
 
-    <string name="exit_without_save">Exit without Save</string>
-    <string name="exit_without_save_warning">All changed will *LOST*</string>
+    <string name="exit_without_save">ABORT WITHOUT SAVING</string>
+    <string name="exit_without_save_warning">Flight plan changes will be lost</string>
 
     <string name="raw_cn" translatable="false">cn</string>
     <string name="disabled">Disabled</string>
     <string name="unavailable">Unavailable</string>
-    <string name="empty_name">Empty Name</string>
-    <string name="invalid_url">Invalid URL</string>
-    <string name="loading">Loading</string>
+    <string name="empty_name">CALLSIGN REQUIRED</string>
+    <string name="invalid_url">INVALID FLIGHT PLAN URL</string>
+    <string name="loading">SPOOLING UP</string>
 
     <string name="format_fetching_configuration">Fetching configuration from \'%s\'</string>
     <string name="format_fetching_provider">Fetching provider \'%s\'</string>
-    <string name="initializing">Initializing</string>
-    <string name="verifying">Verifying</string>
+    <string name="initializing">PRE-FLIGHT CHECK</string>
+    <string name="verifying">CLEARED FOR TAKEOFF</string>
 
-    <string name="new_profile">New Profile</string>
+    <string name="new_profile">NEW FLIGHT PLAN</string>
 
-    <string name="delay">Delay</string>
-    <string name="sort">Sort</string>
-    <string name="default_">Default</string>
+    <string name="delay">ETA</string>
+    <string name="sort">SORT ROUTES</string>
+    <string name="default_">DEFAULT</string>
 
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
-    <string name="reset">Reset</string>
+    <string name="ok">CONFIRM</string>
+    <string name="cancel">ABORT</string>
+    <string name="reset">RESET</string>
 
-    <string name="clash_logcat">Clash Logcat</string>
-    <string name="history">History</string>
-    <string name="logcat">Logcat</string>
+    <string name="clash_logcat">FLIGHT RECORDER</string>
+    <string name="history">FLIGHT LOG HISTORY</string>
+    <string name="logcat">FLIGHT RECORDER</string>
 
-    <string name="delete_all_logs">Delete All Logs</string>
-    <string name="delete_all_logs_warn">All historical logs will *LOST*</string>
+    <string name="delete_all_logs">PURGE BLACK BOX</string>
+    <string name="delete_all_logs_warn">All historical flight logs will be lost</string>
     <string name="file_exported">File Exported</string>
 
-    <string name="behavior">Behavior</string>
-    <string name="network">Network</string>
-    <string name="interface_">Interface</string>
-    <string name="override">Override</string>
+    <string name="behavior">FLIGHT BEHAVIOR</string>
+    <string name="network">AIRSPACE</string>
+    <string name="interface_">COCKPIT</string>
+    <string name="override">FLIGHT RULES</string>
 
-    <string name="auto_restart">Auto Restart</string>
-    <string name="allow_clash_auto_restart">Allow clash auto restart</string>
+    <string name="auto_restart">AUTO RE-DISPATCH</string>
+    <string name="allow_clash_auto_restart">Auto re-dispatch after landing</string>
 
-    <string name="route_system_traffic">Route System Traffic</string>
-    <string name="routing_via_vpn_service">Auto routing all system traffic via VpnService</string>
+    <string name="route_system_traffic">ROUTE ALL AIR TRAFFIC</string>
+    <string name="routing_via_vpn_service">Route all system traffic through the flight tunnel</string>
 
-    <string name="vpn_service_options">VpnService Options</string>
+    <string name="vpn_service_options">AIRSPACE CONTROL</string>
     <string name="bypass_private_network">Bypass Private Network</string>
     <string name="bypass_private_network_summary">Bypass private network addresses</string>
     <string name="dns_hijacking">DNS Hijacking</string>
@@ -145,14 +145,14 @@
     <string name="allow_ipv6_summary">Allows ipv6 traffic via VpnService</string>
     <string name="system_proxy">System Proxy</string>
     <string name="system_proxy_summary">Attach http proxy to VpnService</string>
-    <string name="access_control_mode">Access Control Mode</string>
-    <string name="access_control_packages">Access Control Packages</string>
-    <string name="access_control_packages_summary">Configure access permission for apps</string>
+    <string name="access_control_mode">MANIFEST MODE</string>
+    <string name="access_control_packages">PASSENGER MANIFEST</string>
+    <string name="access_control_packages_summary">Choose which applications board this flight</string>
 
-    <string name="options_unavailable">Options Unavailable until Clash Stopped</string>
+    <string name="options_unavailable">AVIONICS LOCKED UNTIL FLIGHT ENDS</string>
 
-    <string name="general">General</string>
-    <string name="dns">DNS</string>
+    <string name="general">FLIGHT OPS</string>
+    <string name="dns">NAV BEACONS</string>
     <string name="prefer_h3">Prefer h3</string>
     <string name="http_port">HTTP Port</string>
     <string name="socks_port">Socks Port</string>
@@ -162,15 +162,15 @@
     <string name="authentication">Authentication</string>
     <string name="allow_lan">Allow LAN</string>
     <string name="bind_address">Bind Address</string>
-    <string name="mode">Mode</string>
-    <string name="log_level">Log Level</string>
+    <string name="mode">FLIGHT MODE</string>
+    <string name="log_level">TELEMETRY LEVEL</string>
     <string name="ipv6">IPv6</string>
     <string name="external_controller">External Controller</string>
     <string name="external_controller_tls">External Controller TLS</string>
     <string name="allow_origins">External Controller Allow Origins</string>
     <string name="allow_private_network">External Controller Allow Private Network</string>
     <string name="secret">Secret</string>
-    <string name="hosts">Hosts</string>
+    <string name="hosts">NAV OVERRIDES</string>
     <string name="_new">New</string>
     <string name="value">Value</string>
 
@@ -213,11 +213,11 @@
     <string name="strict">Strict</string>
     <string name="always">Always</string>
 
-    <string name="system_apps">System Apps</string>
+    <string name="system_apps">SYSTEM CREW</string>
     <string name="filter">Filter</string>
-    <string name="package_name">Package Name</string>
-    <string name="update_time">Update Time</string>
-    <string name="install_time">Install Time</string>
+    <string name="package_name">PASSENGER ID</string>
+    <string name="update_time">BRIEFING TIME</string>
+    <string name="install_time">COMMISSIONED</string>
     <string name="reverse">Reverse</string>
     <string name="search">Search</string>
     <string name="select_all">Select All</string>
@@ -226,48 +226,48 @@
     <string name="import_from_clipboard">Import from Clipboard</string>
     <string name="export_to_clipboard">Export to Clipboard</string>
 
-    <string name="clash_meta_for_android">Clash Meta for Android</string>
+    <string name="clash_meta_for_android">SkyRoute</string>
 
-    <string name="document">Document</string>
-    <string name="feedback">Feedback</string>
-    <string name="sources">Sources</string>
-    <string name="donate">Donate</string>
-    <string name="clash_wiki">Clash Wiki</string>
-    <string name="github_issues">Github Issues</string>
-    <string name="google_play">Google Play</string>
-    <string name="clash_meta_core">Clash Meta Core</string>
-    <string name="clash_wiki_url" translatable="false">https://github.com/Dreamacro/clash/wiki</string>
-    <string name="meta_github_url" translatable="false">https://github.com/MetaCubeX/ClashMetaForAndroid</string>
-    <string name="clash_meta_core_url" translatable="false">https://github.com/MetaCubeX/Clash.Meta</string>
+    <string name="document">NAVIGATION CHARTS</string>
+    <string name="feedback">FLIGHT CONTROL</string>
+    <string name="sources">OPEN SOURCE</string>
+    <string name="donate">FUEL THE PROJECT</string>
+    <string name="clash_wiki">FLIGHT MANUAL</string>
+    <string name="github_issues">FLIGHT CONTROL ISSUES</string>
+    <string name="google_play">APP STORE</string>
+    <string name="clash_meta_core">MIHOMO ENGINE</string>
+    <string name="clash_wiki_url" translatable="false">https://wiki.metacubex.one</string>
+    <string name="meta_github_url" translatable="false">https://github.com/MaroD1M/SkyRoute</string>
+    <string name="clash_meta_core_url" translatable="false">https://github.com/MetaCubeX/mihomo</string>
 
-    <string name="tips_properties"><![CDATA[Accept Only <strong>Clash Config</strong>(including <strong>Proxy</strong>/<strong>Rules</strong>)]]></string>
-    <string name="tips_help"><![CDATA[Clash Meta for Android is a <strong>freeware</strong> and we do <strong>NOT</strong> provide any service for it]]></string>
+    <string name="tips_properties">Accept only YAML flight plans (Proxies / Rules)</string>
+    <string name="tips_help">SkyRoute is free software. No flight service is provided.</string>
 
-    <string name="google_play_url" translatable="false">https://play.google.com/store/apps/details?id=com.github.kr328.clash</string>
+    <string name="google_play_url" translatable="false">https://github.com/MaroD1M/SkyRoute</string>
 
-    <string name="app">App</string>
-    <string name="service">Service</string>
+    <string name="app">CABIN SYSTEMS</string>
+    <string name="service">GROUND SERVICE</string>
 
-    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode">NIGHT COCKPIT</string>
 
-    <string name="show_traffic">Show Traffic</string>
-    <string name="show_traffic_summary">Auto refresh traffic in notification</string>
+    <string name="show_traffic">SHOW TELEMETRY</string>
+    <string name="show_traffic_summary">Refresh flight telemetry in notification</string>
 
     <string name="follow_system_android_10">Follow System (Android 10+)</string>
     <string name="always_dark">Always Dark</string>
     <string name="always_light">Always Light</string>
 
-    <string name="tun_stack_mode">Stack Mode</string>
+    <string name="tun_stack_mode">TUNNEL STACK</string>
     <string name="tun_stack_system">System Stack</string>
     <string name="tun_stack_gvisor">Gvisor Stack</string>
     <string name="tun_stack_mixed">Mixed Stack</string>
     <string name="tun_stack_mips">Mips Stack</string>
 
-    <string name="allow_all_apps">Allow all apps</string>
-    <string name="allow_selected_apps">Allow selected apps</string>
-    <string name="deny_selected_apps">Deny selected apps</string>
+    <string name="allow_all_apps">ALL PASSENGERS</string>
+    <string name="allow_selected_apps">SELECTED PASSENGERS</string>
+    <string name="deny_selected_apps">DENY SELECTED PASSENGERS</string>
 
-    <string name="no_profile_selected">No profile selected</string>
+    <string name="no_profile_selected">NO FLIGHT PLAN FILED</string>
 
     <string name="layout">Layout</string>
     <string name="single">Single</string>
@@ -275,47 +275,47 @@
     <string name="multiple">Multiple</string>
     <string name="not_selectable">Not Selectable</string>
 
-    <string name="providers">Providers</string>
+    <string name="providers">AIRLINES</string>
 
-    <string name="files">Files</string>
-    <string name="browse_files">Browse Files</string>
-    <string name="browse_configuration_providers"><![CDATA[Browse configuration & providers]]></string>
+    <string name="files">CARGO BAY</string>
+    <string name="browse_files">OPEN CARGO BAY</string>
+    <string name="browse_configuration_providers">Flight plans &amp; airline data</string>
     <string name="rename">Rename</string>
     <string name="file_name">File Name</string>
     <string name="invalid_file_name">Invalid file name</string>
 
-    <string name="reset_override_settings">Reset Override Settings</string>
-    <string name="reset_override_settings_message">All override settings will be discarded</string>
+    <string name="reset_override_settings">RESET FLIGHT RULES</string>
+    <string name="reset_override_settings_message">All flight rule overrides will be discarded</string>
     <string name="key">Key</string>
 
     <string name="use_built_in">Use Built-in</string>
-    <string name="more">More</string>
-    <string name="save">Save</string>
-    <string name="delay_test">Delay Test</string>
+    <string name="more">MORE</string>
+    <string name="save">SAVE</string>
+    <string name="delay_test">RADAR SWEEP</string>
 
     <string name="format_provider_type">%1$s(%2$s)</string>
-    <string name="rule">Rule</string>
+    <string name="rule">ROUTE RULE</string>
     <string name="http">HTTP</string>
     <string name="inline">Inline</string>
     <string name="compatible">Compatible</string>
     <string name="format_update_provider_failure">Update %1$s: %2$s</string>
-    <string name="update_all">Update All</string>
+    <string name="update_all">SYNC TIMETABLE</string>
 
-    <string name="close">Close</string>
+    <string name="close">CLOSE</string>
     <string name="keyword">Keyword</string>
 
     <string name="invalid_log_file">Invalid log file</string>
-    <string name="unable_to_start_vpn">Unable to start VPN component</string>
+    <string name="unable_to_start_vpn">UNABLE TO OPEN THE FLIGHT TUNNEL</string>
 
-    <string name="version_updated">App Updated</string>
-    <string name="version_updated_tips">The settings have been reseted and the old profiles needs to be saved again.</string>
+    <string name="version_updated">FLIGHT COMPUTER UPDATED</string>
+    <string name="version_updated_tips">Settings were reset. Re-file your flight plans.</string>
 
-    <string name="mode_switch_tips">Valid only for current session</string>
+    <string name="mode_switch_tips">Valid only for the current flight session</string>
 
-    <string name="clash_meta_wiki">Clash Meta Wiki</string>
+    <string name="clash_meta_wiki">MIHOMO MANUAL</string>
     <string name="clash_meta_wiki_url" translatable="false">https://wiki.metacubex.one</string>
 
-    <string name="meta_features">Meta Features</string>
+    <string name="meta_features">AVIONICS</string>
     <string name="unified_delay">Unified Delay</string>
     <string name="geodata_mode">Geodata Mode</string>
     <string name="tcp_concurrent">TCP Concurrent</string>
@@ -356,21 +356,54 @@
     <string name="geofile_imported">%1$s imported</string>
     <string name="toast_profile_updated_complete">Update profile %s completed</string>
     <string name="toast_profile_updated_failed">Update profile %1$s failed: %2$s</string>
-    <string name="external_control_activity">External Control</string>
-    <string name="external_control_started">Clash.Meta service started</string>
-    <string name="external_control_stopped">Clash.Meta service stopped</string>
+    <string name="external_control_activity">FLIGHT DISPATCH</string>
+    <string name="external_control_started">Flight departed</string>
+    <string name="external_control_stopped">Flight landed</string>
 
-    <string name="hide_app_icon_title">Hide App Icon</string>
-    <string name="hide_app_icon_desc">You can dial *#*#252746382#*#* to open this App</string>
-    <string name="hide_from_recents_title">Hide from Recents</string>
-    <string name="hide_from_recents_desc">Hide app from the Recent apps screen</string>
+    <string name="hide_app_icon_title">STEALTH MODE</string>
+    <string name="hide_app_icon_desc">Dial *#*#75976883#*#* to open the flight deck</string>
+    <string name="hide_from_recents_title">HIDE FROM RADAR</string>
+    <string name="hide_from_recents_desc">Remove this flight from recent tasks</string>
     <string name="import_from_qr_no_permission">Camera access is restricted. Please enable it in Settings.</string>
     <string name="import_from_qr_exception">An unhandled system exception occurred.</string>
 
-    <string name="shortcut_toggle_short">Toggle Clash</string>
-    <string name="shortcut_toggle_long">Toggle Clash service on/off</string>
-    <string name="shortcut_start_short">Start Clash</string>
-    <string name="shortcut_start_long">Start Clash service</string>
-    <string name="shortcut_stop_short">Stop Clash</string>
-    <string name="shortcut_stop_long">Stop Clash service</string>
+    <string name="shortcut_toggle_short">TOGGLE FLIGHT</string>
+    <string name="shortcut_toggle_long">Start or land the current flight</string>
+    <string name="shortcut_start_short">TAKE OFF</string>
+    <string name="shortcut_start_long">Start the flight tunnel</string>
+    <string name="shortcut_stop_short">LAND</string>
+    <string name="shortcut_stop_long">Stop the flight tunnel</string>
+    <string name="attribution">Open-source derivative based on ClashMetaForAndroid (GPL-3.0).</string>
+    <string name="about_license">GPL-3.0 · Source available on GitHub</string>
+    <string name="app_name_hud">SKYROUTE</string>
+    <string name="app_subtitle_hud">FLIGHT CONTROL SYSTEM</string>
+    <string name="status_standby">STANDBY</string>
+    <string name="status_in_flight">IN FLIGHT</string>
+    <string name="takeoff">TAKE OFF</string>
+    <string name="land">LAND</string>
+    <string name="hud_origin">ORIGIN // LOCAL</string>
+    <string name="hud_destination">DESTINATION // REMOTE</string>
+    <string name="hud_flight_plan">FLIGHT PLAN</string>
+    <string name="hud_route">ROUTE</string>
+    <string name="hud_payload">PAYLOAD</string>
+    <string name="hud_status">STATUS</string>
+    <string name="hud_no_data">—</string>
+    <string name="hud_footer">SKYROUTE // SECURE FLIGHT CHANNEL // GPL-3.0</string>
+    <string name="hud_radar">AIRSPACE RADAR</string>
+    <string name="upstream_project" translatable="false">UPSTREAM PROJECT (GPL-3.0)</string>
+    <string name="upstream_url" translatable="false">https://github.com/MetaCubeX/ClashMetaForAndroid</string>
+    <string name="license_title" translatable="false">LICENSE</string>
+    <string name="license_url" translatable="false">https://www.gnu.org/licenses/gpl-3.0.html</string>
+    <string name="hud_local_node">LOCAL // TOWER-01</string>
+    <string name="hud_remote_node">AUTO // SECTOR-02</string>
+    <string name="hud_ground_services">GROUND SERVICES // FLIGHT DECK</string>
+    <string name="cockpit_style">COCKPIT STYLE</string>
+    <string name="style_cyan">CYAN INTERCEPTOR</string>
+    <string name="style_amber">AMBER SUNSET</string>
+    <string name="style_violet">VIOLET ORBIT</string>
+    <string name="launcher_icon">LAUNCHER ICON</string>
+    <string name="icon_cyan">CYAN INTERCEPTOR</string>
+    <string name="icon_amber">AMBER SUNSET</string>
+    <string name="icon_violet">VIOLET ORBIT</string>
+    <string name="legal">LEGAL</string>
 </resources>

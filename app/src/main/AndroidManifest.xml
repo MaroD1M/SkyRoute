@@ -18,7 +18,7 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <!-- Workaround for Android 17+ cross profile loopback networking restrictions.
-         This permission allows CMFA to connect to loopback addresses and ports bound
+         This permission allows SkyRoute to connect to loopback addresses and ports bound
          by the same app running in different profiles.
          It can only be granted via ADB. -->
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"
@@ -61,7 +61,43 @@
         </activity>
         <activity-alias
             android:name=".MainActivityAlias"
+            android:enabled="true"
             android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/launch_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityAliasAmber"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_amber"
+            android:label="@string/launch_name"
+            android:roundIcon="@mipmap/ic_launcher_amber_round"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityAliasViolet"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_violet"
+            android:label="@string/launch_name"
+            android:roundIcon="@mipmap/ic_launcher_violet_round"
             android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -84,20 +120,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="clash"/>
-                <data android:scheme="clashmeta"/>
+                <data android:scheme="skyroute"/>
+                <data android:scheme="flightdeck"/>
                 <data android:host="install-config"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="com.github.metacubex.clash.meta.action.START_CLASH" />
+                <action android:name="${applicationId}.action.TAKEOFF" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.github.metacubex.clash.meta.action.STOP_CLASH" />
+                <action android:name="${applicationId}.action.LAND" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.github.metacubex.clash.meta.action.TOGGLE_CLASH" />
+                <action android:name="${applicationId}.action.TOGGLE_FLIGHT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -126,7 +162,7 @@
             android:name=".PropertiesActivity"
             android:configChanges="uiMode"
             android:exported="false"
-            android:label="@string/profile" />
+            android:label="@string/properties" />
         <activity
             android:name=".ProxyActivity"
             android:configChanges="uiMode"
@@ -221,8 +257,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SECRET_CODE" />
-                <!-- 252746382 is the name of Clash Meta in T9 -->
-                <data android:scheme="android_secret_code" android:host="252746382" />
+                <!-- 75976883 spells SKYROUTE in T9 -->
+                <data android:scheme="android_secret_code" android:host="75976883" />
             </intent-filter>
         </receiver>
     </application>

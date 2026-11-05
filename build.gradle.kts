@@ -47,19 +47,19 @@ subprojects {
         defaultConfig {
             if (isApp) {
                 val customApplicationId = queryConfigProperty("custom.application.id") as? String?
-                applicationId = customApplicationId.takeIf { it?.isNotBlank() == true } ?: "com.github.metacubex.clash"
+                applicationId = customApplicationId.takeIf { it?.isNotBlank() == true } ?: "com.skyroute.flightdeck"
             }
 
             project.name.let { name ->
-                namespace = if (name == "app") "com.github.kr328.clash"
-                else "com.github.kr328.clash.$name"
+                namespace = if (name == "app") "com.skyroute.flightdeck"
+                else "com.skyroute.flightdeck.$name"
             }
 
             minSdk = 21
             targetSdk = 35
 
-            versionName = "2.11.36"
-            versionCode = 211036
+            versionName = "1.0.0"
+            versionCode = 10000
 
             resValue("string", "release_name", "v$versionName")
             resValue("integer", "release_code", "$versionCode")
@@ -77,7 +77,7 @@ subprojects {
             if (!isApp) {
                 consumerProguardFiles("consumer-rules.pro")
             } else {
-                setProperty("archivesBaseName", "cmfa-$versionName")
+                setProperty("archivesBaseName", "skyroute-$versionName")
             }
         }
 
@@ -96,13 +96,13 @@ subprojects {
         productFlavors {
             flavorDimensions("feature")
 
-            val removeSuffix = (queryConfigProperty("remove.suffix") as? String)?.toBoolean() == true
+            val removeSuffix = (queryConfigProperty("remove.suffix") as? String)?.toBoolean() ?: true
 
             create("alpha") {
                 isDefault = true
                 dimension = flavorDimensionList[0]
                 if (!removeSuffix) {
-                    versionNameSuffix = ".Alpha"
+                    versionNameSuffix = ".Preview"
                 }
 
 
@@ -112,7 +112,7 @@ subprojects {
                 resValue("string", "application_name", "@string/application_name_alpha")
 
                 if (isApp && !removeSuffix) {
-                    applicationIdSuffix = ".alpha"
+                    applicationIdSuffix = ".preview"
                 }
             }
 
@@ -120,7 +120,7 @@ subprojects {
 
                 dimension = flavorDimensionList[0]
                 if (!removeSuffix) {
-                    versionNameSuffix = ".Meta"
+                    versionNameSuffix = ".Stable"
                 }
 
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
@@ -129,7 +129,7 @@ subprojects {
                 resValue("string", "application_name", "@string/application_name_meta")
 
                 if (isApp && !removeSuffix) {
-                    applicationIdSuffix = ".meta"
+                    applicationIdSuffix = ".stable"
                 }
             }
         }
@@ -144,14 +144,15 @@ subprojects {
         }
 
         signingConfigs {
-            val keystore = rootProject.file("signing.properties")
-            if (keystore.exists()) {
+            val signingProperties = rootProject.file("signing.properties")
+            val keystoreFile = rootProject.file("release.keystore")
+            if (signingProperties.exists() && keystoreFile.exists()) {
                 create("release") {
                     val prop = Properties().apply {
-                        keystore.inputStream().use(this::load)
+                        signingProperties.inputStream().use(this::load)
                     }
 
-                    storeFile = rootProject.file("release.keystore")
+                    storeFile = keystoreFile
                     storePassword = prop.getProperty("keystore.password")!!
                     keyAlias = prop.getProperty("key.alias")!!
                     keyPassword = prop.getProperty("key.password")!!
