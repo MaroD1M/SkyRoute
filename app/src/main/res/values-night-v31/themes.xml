@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BootstrapTheme" parent="AppThemeDark">
+        <item name="android:windowSplashScreenBackground">@color/color_splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_plane</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/color_splash_background</item>
+        <item name="android:windowSplashScreenAnimationDuration">500</item>
+    </style>
+</resources>

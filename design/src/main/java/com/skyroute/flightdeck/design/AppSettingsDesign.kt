@@ -1,6 +1,7 @@
 package com.skyroute.flightdeck.design
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.View
 import com.skyroute.flightdeck.design.databinding.DesignSettingsCommonBinding
 import com.skyroute.flightdeck.design.model.AppIconVariant
@@ -23,6 +24,7 @@ class AppSettingsDesign(
     running: Boolean,
     onHideIconChange: (hide: Boolean) -> Unit,
     onIconChange: (icon: AppIconVariant) -> Unit,
+    iconDrawable: (icon: AppIconVariant) -> Drawable,
 ) : Design<AppSettingsDesign.Request>(context) {
     enum class Request {
         ReCreateAllActivities
@@ -85,19 +87,28 @@ class AppSettingsDesign(
                 }
             }
 
+            val preview = iconPreview(
+                R.string.current_icon,
+                iconDrawable(uiStore.appIcon),
+                context.getText(iconText(uiStore.appIcon)),
+            )
+
             selectableList(
                 value = uiStore::appIcon,
                 values = AppIconVariant.values(),
                 valuesText = arrayOf(
                     R.string.icon_cyan,
                     R.string.icon_amber,
-                    R.string.icon_violet
+                    R.string.icon_violet,
+                    R.string.icon_material
                 ),
                 icon = R.drawable.ic_aircraft_info,
                 title = R.string.launcher_icon
             ) {
                 listener = OnChangedListener {
                     onIconChange(uiStore.appIcon)
+                    preview.setIcon(iconDrawable(uiStore.appIcon))
+                    preview.setSummary(context.getText(iconText(uiStore.appIcon)))
                 }
             }
 
@@ -136,5 +147,14 @@ class AppSettingsDesign(
         }
 
         binding.content.addView(screen.root)
+    }
+
+    private fun iconText(icon: AppIconVariant): Int {
+        return when (icon) {
+            AppIconVariant.Cyan -> R.string.icon_cyan
+            AppIconVariant.Amber -> R.string.icon_amber
+            AppIconVariant.Violet -> R.string.icon_violet
+            AppIconVariant.MaterialYou -> R.string.icon_material
+        }
     }
 }

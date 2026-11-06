@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:drawable="@drawable/ic_splash_plane_static">
+    <target android:name="planeGroup">
+        <aapt:attr name="android:animation">
+            <set android:interpolator="@android:interpolator/decelerate_cubic">
+                <objectAnimator
+                    android:propertyName="translateX"
+                    android:valueFrom="-16"
+                    android:valueTo="0"
+                    android:duration="420"
+                    android:startOffset="50" />
+                <objectAnimator
+                    android:propertyName="translateY"
+                    android:valueFrom="18"
+                    android:valueTo="0"
+                    android:duration="420"
+                    android:startOffset="50" />
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:valueFrom="-52"
+                    android:valueTo="0"
+                    android:duration="420"
+                    android:startOffset="50" />
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>

@@ -406,4 +406,9 @@
     <string name="icon_amber">AMBER SUNSET</string>
     <string name="icon_violet">VIOLET ORBIT</string>
     <string name="legal">LEGAL</string>
+    <string name="icon_material">SYSTEM THEMED</string>
+    <string name="current_icon">CURRENT ICON</string>
+    <string name="transition_takeoff">TAKE OFF</string>
+    <string name="transition_landing">LANDING</string>
+    <string name="transition_subtitle">SKYROUTE // FLIGHT CONTROL</string>
 </resources>

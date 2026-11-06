@@ -1,6 +1,7 @@
 package com.skyroute.flightdeck
 
 import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
 import com.skyroute.flightdeck.common.util.componentName
 import com.skyroute.flightdeck.design.AppSettingsDesign
 import com.skyroute.flightdeck.design.model.AppIconVariant
@@ -21,7 +22,17 @@ class AppSettingsActivity : BaseActivity<AppSettingsDesign>(), Behavior {
             clashRunning,
             ::onHideIconChange,
             ::onIconChange,
-        )
+        ) { icon ->
+            ContextCompat.getDrawable(
+                this,
+                when (icon) {
+                    AppIconVariant.Cyan -> R.mipmap.ic_launcher
+                    AppIconVariant.Amber -> R.mipmap.ic_launcher_amber
+                    AppIconVariant.Violet -> R.mipmap.ic_launcher_violet
+                    AppIconVariant.MaterialYou -> R.mipmap.ic_launcher_material
+                }
+            )!!
+        }
 
         setContentDesign(design)
 

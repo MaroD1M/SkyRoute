@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.HapticFeedbackConstants
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.core.app.ActivityCompat
@@ -53,6 +54,10 @@ class MainActivity : BaseActivity<MainDesign>() {
                 design.requests.onReceive {
                     when (it) {
                         MainDesign.Request.ToggleStatus -> {
+                            window.decorView.performHapticFeedback(
+                                HapticFeedbackConstants.VIRTUAL_KEY
+                            )
+
                             if (clashRunning)
                                 stopClashService()
                             else

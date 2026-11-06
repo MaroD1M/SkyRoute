@@ -7,7 +7,7 @@ Features:
 - Live flight radar HUD with animated aircraft
 - Flight plans (profiles), air routes (proxy groups), airlines (providers)
 - Per-app passenger manifest, airspace control and night-cockpit theme
-- Three launcher icons and three cockpit accent styles, switchable in Settings
+- Four launcher icons (including a system-themed Material You option) and three cockpit accent styles, switchable in Settings
 - Free software, GPL-3.0, no ads, no analytics, no telemetry
 
 SkyRoute is a derivative of ClashMetaForAndroid and is not affiliated with or

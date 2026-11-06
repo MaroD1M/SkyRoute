@@ -100,11 +100,15 @@ class UiStore(context: Context) {
         val Context.mainActivityAliasViolet: ComponentName
             get() = ComponentName(this, "com.skyroute.flightdeck.MainActivityAliasViolet")
 
+        val Context.mainActivityAliasMaterial: ComponentName
+            get() = ComponentName(this, "com.skyroute.flightdeck.MainActivityAliasMaterial")
+
         fun launcherAlias(context: Context, variant: AppIconVariant): ComponentName {
             return when (variant) {
                 AppIconVariant.Cyan -> context.mainActivityAlias
                 AppIconVariant.Amber -> context.mainActivityAliasAmber
                 AppIconVariant.Violet -> context.mainActivityAliasViolet
+                AppIconVariant.MaterialYou -> context.mainActivityAliasMaterial
             }
         }
 
@@ -117,6 +121,7 @@ class UiStore(context: Context) {
                 context.mainActivityAlias,
                 context.mainActivityAliasAmber,
                 context.mainActivityAliasViolet,
+                context.mainActivityAliasMaterial,
             )
             val selected = launcherAlias(context, variant)
 

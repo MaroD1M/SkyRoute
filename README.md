@@ -17,8 +17,11 @@ The proxy kernel is [mihomo](https://github.com/MetaCubeX/mihomo)
 
 - Live airspace radar: origin → destination route with animated takeoff/landing
 - Flight status HUD: `STANDBY`, `IN FLIGHT`, `LANDED`
-- Three switchable launcher icons: Cyan Interceptor, Amber Sunset, Violet Orbit
+- Four switchable launcher icons: Cyan Interceptor, Amber Sunset, Violet Orbit, System Themed (Material You)
+- In-app launcher icon preview, with simplified 48/72 px artwork
 - Three switchable cockpit styles: Cyan, Amber, Violet (HUD, radar, accents)
+- Animated flight transition on takeoff/landing, plus haptic toggle feedback
+- Android 12+ animated takeoff splash screen
 - Flight plans (profiles), air routes (proxy groups), airlines (providers)
 - Black box (logs), flight recorder (logcat), control tower (settings)
 - Passenger manifest (per-app access control), airspace control (TUN/VPN)

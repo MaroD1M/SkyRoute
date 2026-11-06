@@ -320,4 +320,9 @@
     <string name="icon_amber">琥珀日落</string>
     <string name="icon_violet">紫罗兰轨道</string>
     <string name="legal">法律信息</string>
+    <string name="icon_material">跟随系统</string>
+    <string name="current_icon">当前图标</string>
+    <string name="transition_takeoff">起飞</string>
+    <string name="transition_landing">降落</string>
+    <string name="transition_subtitle">天际航路 // 飞行控制</string>
 </resources>

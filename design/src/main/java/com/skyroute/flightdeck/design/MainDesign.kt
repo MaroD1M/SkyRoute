@@ -31,6 +31,8 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
     private val binding = DesignMainBinding
         .inflate(context.layoutInflater, context.root, false)
 
+    private var lastRunning: Boolean? = null
+
     override val root: View
         get() = binding.root
 
@@ -42,6 +44,9 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
 
     suspend fun setClashRunning(running: Boolean) {
         withContext(Dispatchers.Main) {
+            val changed = lastRunning != null && lastRunning != running
+            lastRunning = running
+
             binding.clashRunning = running
             binding.flightRadar.inFlight = running
             binding.mainActionCard.strokeColor = context.resolveThemedColor(
@@ -51,6 +56,10 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
                     R.attr.colorClashStopped
                 }
             )
+
+            if (!changed) {
+                return@withContext
+            }
 
             binding.statusChip.animate().cancel()
             binding.statusChip.animate()
@@ -79,6 +88,8 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
                         .start()
                 }
                 .start()
+
+            binding.flightTransition.play(running)
         }
     }
 
