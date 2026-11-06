@@ -1,5 +1,7 @@
 package com.skyroute.flightdeck.design.view
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
@@ -13,7 +15,6 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import android.view.animation.DecelerateInterpolator
-import android.view.animation.LinearInterpolator
 import kotlin.math.PI
 import kotlin.math.atan2
 import kotlin.math.min
@@ -32,15 +33,13 @@ class FlightRadarView @JvmOverloads constructor(
             }
 
             field = value
-
-            if (value) {
-                startFlight()
-            } else {
-                stopFlight()
-            }
-
+            updateFlightState(value)
             invalidate()
         }
+
+    private enum class Phase {
+        Idle, TakingOff, Cruising, Landing
+    }
 
     private val density = resources.displayMetrics.density
     private val scaledDensity = resources.displayMetrics.scaledDensity
@@ -128,60 +127,86 @@ class FlightRadarView @JvmOverloads constructor(
     private val tangent = FloatArray(2)
 
     private var animator: ValueAnimator? = null
-    private var landAnimator: ValueAnimator? = null
     private var progress = 0f
-    private var dashPhase = 0f
+    private var phase = Phase.Idle
+    private var planeVisible = true
 
     init {
         setWillNotDraw(false)
     }
 
-    private fun startFlight() {
-        landAnimator?.cancel()
-        landAnimator = null
+    fun setPlaneVisible(visible: Boolean) {
+        if (planeVisible == visible) {
+            return
+        }
 
-        animator?.cancel()
-        animator = ValueAnimator.ofFloat(0f, 1f).apply {
-            duration = 6200L
-            repeatCount = ValueAnimator.INFINITE
-            interpolator = LinearInterpolator()
-            addUpdateListener {
-                progress = it.animatedValue as Float
-                dashPhase = (dashPhase + 5f * density) % (26f * density)
-                routePaint.pathEffect = DashPathEffect(
-                    floatArrayOf(14f * density, 12f * density),
-                    dashPhase
-                )
-                invalidate()
+        planeVisible = visible
+        invalidate()
+    }
+
+    fun setRunningImmediately(running: Boolean) {
+        val previous = animator
+        animator = null
+        previous?.cancel()
+
+        progress = if (running) 1f else 0f
+        phase = if (running) Phase.Cruising else Phase.Idle
+        inFlight = running
+
+        invalidate()
+    }
+
+    private fun updateFlightState(running: Boolean) {
+        if (running) {
+            when (phase) {
+                Phase.Cruising, Phase.TakingOff -> Unit
+                Phase.Idle -> animateTo(1f, Phase.TakingOff, 1600L)
+                Phase.Landing -> animateTo(1f, Phase.TakingOff, 1200L)
             }
-            start()
+        } else {
+            when (phase) {
+                Phase.Idle, Phase.Landing -> Unit
+                Phase.TakingOff -> animateTo(0f, Phase.Landing, 1200L)
+                Phase.Cruising -> animateTo(0f, Phase.Landing, 1400L)
+            }
         }
     }
 
-    private fun stopFlight() {
-        animator?.cancel()
+    private fun animateTo(target: Float, nextPhase: Phase, duration: Long) {
+        val previous = animator
         animator = null
+        previous?.cancel()
 
-        landAnimator?.cancel()
-
-        if (progress <= 0f) {
-            progress = 0f
+        if (progress == target) {
+            phase = if (target >= 1f) Phase.Cruising else Phase.Idle
             invalidate()
             return
         }
 
-        landAnimator = ValueAnimator.ofFloat(progress, 0f).apply {
-            duration = 1400L
+        phase = nextPhase
+
+        animator = ValueAnimator.ofFloat(progress, target).apply {
+            this.duration = duration
             interpolator = DecelerateInterpolator()
+
             addUpdateListener {
                 progress = it.animatedValue as Float
-                dashPhase = (dashPhase - 4f * density + 26f * density) % (26f * density)
-                routePaint.pathEffect = DashPathEffect(
-                    floatArrayOf(14f * density, 12f * density),
-                    dashPhase
-                )
                 invalidate()
             }
+
+            addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    if (animator !== animation) {
+                        return
+                    }
+
+                    animator = null
+                    progress = target
+                    phase = if (target >= 1f) Phase.Cruising else Phase.Idle
+                    invalidate()
+                }
+            })
+
             start()
         }
     }
@@ -189,16 +214,18 @@ class FlightRadarView @JvmOverloads constructor(
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        if (inFlight) {
-            startFlight()
+        when {
+            inFlight && phase != Phase.Cruising ->
+                animateTo(1f, Phase.TakingOff, 1200L)
+            !inFlight && phase != Phase.Idle ->
+                animateTo(0f, Phase.Landing, 1200L)
         }
     }
 
     override fun onDetachedFromWindow() {
-        animator?.cancel()
+        val current = animator
         animator = null
-        landAnimator?.cancel()
-        landAnimator = null
+        current?.cancel()
 
         super.onDetachedFromWindow()
     }
@@ -255,6 +282,13 @@ class FlightRadarView @JvmOverloads constructor(
         route.moveTo(originX, originY)
         route.quadTo(controlX, controlY, destinationX, destinationY)
 
+        if (phase != Phase.Idle) {
+            routePaint.pathEffect = DashPathEffect(
+                floatArrayOf(14f * density, 12f * density),
+                (System.currentTimeMillis() / 45f) % (26f * density)
+            )
+        }
+
         canvas.drawPath(route, routePaint)
 
         val nodeRadius = 4.5f * density
@@ -265,8 +299,10 @@ class FlightRadarView @JvmOverloads constructor(
         nodePaint.color = secondary
         canvas.drawCircle(originX, originY, nodeRadius, nodePaint)
 
-        val pulse = if (inFlight) {
-            0.85f + 0.15f * sin(progress * 2f * PI).toFloat()
+        val pulse = if (phase == Phase.Cruising) {
+            0.85f + 0.15f * sin(
+                (System.currentTimeMillis() % 1600L) / 1600f * 2f * PI
+            ).toFloat()
         } else {
             1f
         }
@@ -281,16 +317,18 @@ class FlightRadarView @JvmOverloads constructor(
 
         measure.setPath(route, false)
 
-        if (measure.length > 0f) {
-            val t = if (inFlight) progress else 0f
-
-            measure.getPosTan(measure.length * t, position, tangent)
+        if (measure.length > 0f && planeVisible) {
+            measure.getPosTan(measure.length * progress, position, tangent)
 
             val angle = Math.toDegrees(
                 atan2(tangent[1].toDouble(), tangent[0].toDouble())
             ).toFloat() + 90f
 
             drawPlane(canvas, position[0], position[1], angle)
+        }
+
+        if (phase != Phase.Idle) {
+            postInvalidateOnAnimation()
         }
     }
 

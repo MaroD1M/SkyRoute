@@ -15,9 +15,7 @@ import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.animation.doOnEnd
 import com.skyroute.flightdeck.design.R
-import kotlin.math.PI
 import kotlin.math.atan2
-import kotlin.math.sin
 
 class FlightTransitionView @JvmOverloads constructor(
     context: Context,
@@ -82,15 +80,23 @@ class FlightTransitionView @JvmOverloads constructor(
     private var animator: ValueAnimator? = null
     private var progress = 0f
     private var takeoff = true
+    private var generation = 0
 
     init {
         setWillNotDraw(false)
         visibility = GONE
     }
 
-    fun play(takeoff: Boolean) {
+    fun play(takeoff: Boolean, onEnd: () -> Unit = {}) {
         this.takeoff = takeoff
-        animator?.cancel()
+
+        generation += 1
+        val token = generation
+
+        val previous = animator
+        animator = null
+        previous?.cancel()
+
         progress = 0f
         visibility = VISIBLE
         isClickable = true
@@ -105,9 +111,12 @@ class FlightTransitionView @JvmOverloads constructor(
                 invalidate()
             }
             doOnEnd {
-                visibility = GONE
-                isClickable = false
-                isFocusable = false
+                if (token == generation) {
+                    visibility = GONE
+                    isClickable = false
+                    isFocusable = false
+                    onEnd()
+                }
             }
             start()
         }
@@ -129,7 +138,11 @@ class FlightTransitionView @JvmOverloads constructor(
             return
         }
 
-        val fade = sin(progress * PI).toFloat().coerceIn(0f, 1f)
+        val fade = when {
+            progress < 0.12f -> progress / 0.12f
+            progress > 0.82f -> (1f - progress) / 0.18f
+            else -> 1f
+        }.coerceIn(0f, 1f)
         val alpha = (fade * 255f).toInt()
 
         scrimPaint.color = withAlpha(scrimColor, (190f * fade).toInt())

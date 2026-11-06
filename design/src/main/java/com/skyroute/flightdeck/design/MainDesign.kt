@@ -44,11 +44,17 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
 
     suspend fun setClashRunning(running: Boolean) {
         withContext(Dispatchers.Main) {
+            val initial = lastRunning == null
             val changed = lastRunning != null && lastRunning != running
             lastRunning = running
 
             binding.clashRunning = running
-            binding.flightRadar.inFlight = running
+
+            if (initial) {
+                binding.flightRadar.setRunningImmediately(running)
+            } else {
+                binding.flightRadar.inFlight = running
+            }
             binding.mainActionCard.strokeColor = context.resolveThemedColor(
                 if (running) {
                     com.google.android.material.R.attr.colorPrimary
@@ -89,7 +95,10 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
                 }
                 .start()
 
-            binding.flightTransition.play(running)
+            binding.flightRadar.setPlaneVisible(false)
+            binding.flightTransition.play(running) {
+                binding.flightRadar.setPlaneVisible(true)
+            }
         }
     }
 
