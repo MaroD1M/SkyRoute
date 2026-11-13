@@ -2,14 +2,27 @@ name: Build Debug
 on:
   pull_request:
     types: [opened, reopened, synchronize]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - ".github/ISSUE_TEMPLATE/**"
   workflow_dispatch:
   push:
     branches:
       - main
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - ".github/ISSUE_TEMPLATE/**"
+
+concurrency:
+  group: build-debug-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   BuildDebug:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
@@ -72,40 +85,45 @@ jobs:
           
       - name: Upload Aritfact (universal)
         uses: actions/upload-artifact@v7
-        if: ${{  success() }}
+        if: ${{ success() && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') }}
         with:
           name: SkyRoute Debug Unsigned APK (universal)
           path: |
             app/build/outputs/apk/alpha/release/*-universal-*.apk
+          retention-days: 1
       
       - name: Upload Aritfact (arm64-v8a)
         uses: actions/upload-artifact@v7
-        if: ${{  success() }}
+        if: ${{ success() && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') }}
         with:
           name: SkyRoute Debug Unsigned APK (arm64-v8a)
           path: |
             app/build/outputs/apk/alpha/release/*-arm64-v8a-*.apk
+          retention-days: 1
       
       - name: Upload Aritfact (armeabi-v7a)
         uses: actions/upload-artifact@v7
-        if: ${{  success() }}
+        if: ${{ success() && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') }}
         with:
           name: SkyRoute Debug Unsigned APK (armeabi-v7a)
           path: |
             app/build/outputs/apk/alpha/release/*-armeabi-v7a-*.apk
+          retention-days: 1
       
       - name: Upload Aritfact (x86_64)
         uses: actions/upload-artifact@v7
-        if: ${{  success() }}
+        if: ${{ success() && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') }}
         with:
           name: SkyRoute Debug Unsigned APK (x86_64)
           path: |
             app/build/outputs/apk/alpha/release/*-x86_64-*.apk
+          retention-days: 1
       
       - name: Upload Aritfact (x86)
         uses: actions/upload-artifact@v7
-        if: ${{  success() }}
+        if: ${{ success() && (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch') }}
         with:
           name: SkyRoute Debug Unsigned APK (x86)
           path: |
             app/build/outputs/apk/alpha/release/*-x86-*.apk
+          retention-days: 1
